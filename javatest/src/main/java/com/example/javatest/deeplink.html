@@ -2,25 +2,19 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 
-    <title>DeepLink 测试</title>
+    <title>this's a demo</title>
     <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
 </head>
 <body>
 <div>
-    <a id="J-call-app" href="javascript:;" class="label">立即打开（没有应用下载应用）&gt;&gt;</a>
+    <a id="J-call-app" href="javascript:;" class="label">立即打开&gt;&gt;</a>
     <input id="J-download-app" type="hidden" name="storeurl" value="https://github.com/Gloria-zzy/MVPTemplate/raw/main/javatest/build/outputs/apk/debug/javatest-debug.apk">
 </div>
 
-<div>
-    <br/><br/>
-    <a href="will://link/testId">立即打开（直接打开）&gt;&gt;</a>
-</div>
-
-<!--没有应用下载应用-->
 <script>
             (function(){
                 var ua = navigator.userAgent.toLowerCase();
@@ -28,9 +22,9 @@
                 var config = {
                     /*scheme:必须*/
                     scheme_IOS: 'will://',
-                    scheme_Adr: 'will://share/520',
+                    scheme_Adr: 'will://share/testid',
                     download_url: document.getElementById('J-download-app').value,
-                    timeout: 300
+                    timeout: 600
                 };
                 function openclient() {
                     var startTime = Date.now();
