@@ -19,7 +19,7 @@ public class DeepLinkActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.deeplink_activity);
+        setContentView(R.layout.activity_deep_link);
         tvData = findViewById(R.id.tv_data);
         getDataFromBrowser();
     }
