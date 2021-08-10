@@ -1,10 +1,10 @@
 package com.example.javatest;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private static String TAG = "MainActivity";
 
     private Button btnWebView;
+    private Button btnOpenQQ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         btnWebView = findViewById(R.id.btn_webview);
+        btnOpenQQ = findViewById(R.id.btn_open_qq);
     }
 
     private void initAction() {
@@ -39,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+        btnOpenQQ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "mqqwpa://im/chat?chat_type=wpa&uin=847214223";
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
             }
         });
     }
