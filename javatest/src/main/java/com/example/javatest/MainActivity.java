@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String url = "mqqwpa://im/chat?chat_type=wpa&uin=847214223";
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                if (getPackageManager().resolveActivity(intent, 0) != null){
+                    // 系统中存在该activity
+                    startActivity(intent);
+                }else{
+                    // 系统中不存在该activity
+                    Toast.makeText(getApplicationContext(), "无法打开qq", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
