@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.mylibrary.LogUtil;
+
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = "MainActivity";
@@ -51,9 +53,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 if (getPackageManager().resolveActivity(intent, 0) != null){
                     // 系统中存在该activity
+                    LogUtil.INSTANCE.d(TAG, "jump to qq");
                     startActivity(intent);
                 }else{
                     // 系统中不存在该activity
+                    LogUtil.INSTANCE.e(TAG, "无法打开qq");
                     Toast.makeText(getApplicationContext(), "无法打开qq", Toast.LENGTH_SHORT).show();
                 }
             }
